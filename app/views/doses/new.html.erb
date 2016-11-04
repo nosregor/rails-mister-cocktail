@@ -1,0 +1,18 @@
+<h1>Add new dose</h1>
+
+
+<%= form_for([@cocktail, @dose]) do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :ingredient %>
+  <%#= f.select :ingredient , @ingredients_and_ids %>
+
+<%#= Inous Legend method%>
+  <%= f.collection_select :ingredient_id, @ingredients, :id ,:name %>
+
+  <% f.text_field :cocktail %>
+
+  <%= f.submit %>
+<% end %>

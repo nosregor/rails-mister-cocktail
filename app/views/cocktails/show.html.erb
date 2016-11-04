@@ -1,0 +1,25 @@
+<h1> <%=@cocktail.name  %></h1>
+
+
+
+<img src="<%= @cocktail.picture %>" alt="">
+
+
+<ul>
+<% @cocktail.doses.each do |dose| %>
+<li> <%= dose.description  %> : <%= dose.ingredient.name  %></li>
+<%#= raise %>
+<li><%= link_to 'Delete', cocktail_dose_path(@cocktail.id, dose), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary"%></li>
+
+<li><%= link_to 'Edit', edit_cocktail_dose_path(@cocktail.id, dose), class: "btn btn-primary"%></li>
+<% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-primary" %>
+ |
+<%= link_to 'Delete', @cocktail, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary"%> |
+<%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
+
+<%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail) %>
+
