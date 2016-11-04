@@ -1,10 +1,10 @@
-<h1>Edit Cocktail </h1>
+<h1>Edit <%= @cocktail.name %> </h1>
 
-<%= render 'form', cocktail: @cocktail %>
-
-
-<%= link_to 'Show', @cocktail, class: "btn btn-primary"%> |
+<div class="pull-right">
+<%= link_to 'Show', @cocktail, class: "btn btn-primary"%>
 <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
+ </div>
+<%= render 'form', cocktail: @cocktail %>
 
 
 

@@ -13,15 +13,16 @@ class CocktailsController < ApplicationController
   # GET /cocktails/new
   def new
     @cocktail = Cocktail.new
+    flash[:notice] = "You have created #{@cocktail.name} successfully."
   end
 
   # GET /cocktails/1/edit
   def edit
     @dose = Dose.new
-    #@ingredients_and_ids = Ingredient.pluck(:name, :id)
+    @ingredient = Ingredient.all
 
-    # Inous (Legend) method
-    #@ingredient = Ingredient.all
+    # Alternative method: AR
+    #@ingredients_and_ids = Ingredient.pluck(:name, :id)
   end
 
 
@@ -30,6 +31,7 @@ class CocktailsController < ApplicationController
     #Cocktail.create(cocktail_params)
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
+      flash[:notice] = "You have created #{@cocktail.name} successfully."
       redirect_to cocktail_path(@cocktail)
     else
       render :new
@@ -39,14 +41,15 @@ class CocktailsController < ApplicationController
 
   # PATCH/PUT /cocktails/1
   def update
-    flash[:notice] = "You have updated #{@cocktail.name}"
     @cocktail.update(cocktail_params)
+    flash[:notice] = "You have updated #{@cocktail.name} successfully."
     redirect_to cocktails_path
   end
 
   # DELETE /cocktails/1
   def destroy
     @cocktail.destroy
+    flash[:notice] = "You have deleted #{@cocktail.name} successfully."
     redirect_to cocktails_path
   end
 
