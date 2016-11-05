@@ -123,7 +123,7 @@ end
 puts "Adding #{cocktail_rows} rows to Cocktails"
 cocktail_rows.times do
  cocktail_hash = get_json(cocktail_random_url)["drinks"][0]
- cocktail_obj = Cocktail.create(name: cocktail_hash["strDrink"], remote_picture_url: cocktail_hash["strDrinkThumb"])
+ cocktail_obj = Cocktail.create(name: cocktail_hash["strDrink"], remote_picture_url: cocktail_hash["strDrinkThumb"], description: cocktail_hash["strInstructions"])
 
  15.times do |n|
    index_number = n + 1

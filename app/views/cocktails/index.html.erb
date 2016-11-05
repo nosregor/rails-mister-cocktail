@@ -1,12 +1,38 @@
 <!-- <p id="notice"> <%#= notice %> </p> -->
+
+<!-- <div>
+<%#= cl_image_tag('w3awmncbh3mzgscmukra', crop: :fill) %>
+</div> -->
+
+
+<!--
+<div class="banner" style="background-image:url('<%#= cl_image_tag('w3awmncbh3mzgscmukra', crop: :fill) %>') ;">
+<div class="">
+<h1 class="">Cocktail Recipes</h1>
+<p> There's a drink for every mood or occasion. Find your favorite cocktail recipes below. Or think outside the glass and try a brand new drink. Your new favorite could be a shake or stir away.
+</p> -->
+
+
+<%#= cl_image_tag('w3awmncbh3mzgscmukra', crop: :fill) %>
+<%#=image_tag("1.jpg", alt: "Example Image")%>
 <div class="container">
-<h1>Cocktails</h1>
+<div class="banner">
+  <div class="banner-content">
+    <h1>Cocktail Recipes</h1>
+    <p>There's a drink for every mood or occasion. Find your favorite cocktail recipes below. Or think outside the glass and try a brand new drink. Your new favorite could be a shake or stir away.</p>
+  </div>
+</div>
+
+
+<div class="container">
+<br>
   <div class="row">
 
 
     <% @cocktails.each do |cocktail|  %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
+
 
         <!-- <img src="<%#= cocktail.picture  %>" alt="cocktail.name" width="242px" height="200px"> -->
 
@@ -26,9 +52,8 @@
     </div>
     <% end %>
 
-
   </div>
 </div>
 
-
+</div>
 

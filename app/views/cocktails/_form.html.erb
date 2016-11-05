@@ -10,6 +10,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: "form-control", placeholder: "How to prepare" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :picture %><br>
     <%= f.file_field :picture, class: "form-control", placeholder: "Upload a picture" %>
   </div>
