@@ -4,24 +4,26 @@
   <div class="pull-right">
     <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-default" %>
     <%= link_to 'Delete', @cocktail, method: :delete, data: { confirm: "Are you sure you want to delete #{@cocktail.name} ?" }, class: "btn btn-default"%>
+
     <%#= link_to "Edit", edit_cocktail_path(@cocktail), :class => "btn btn-default" %>
     <%#= link_to "Delete", cocktail_path(@cocktail), method: :delete, :class => "btn btn-default", data: { confirm: "Are you sure you want to delete #{@cocktail.name} ?"} %>
 
     <%= link_to 'Back', cocktails_path, class: "btn btn-default" %>
-
-    <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail) %>
   </div>
 </h1>
 
 
-<div class="container">
   <div class="row">
 
     <div class="col-sm-6 col-md-4 text-center">
 
-        <img src="<%= @cocktail.picture %>" class="img-circle show_image" alt="@cocktail.name" height="300">
+      <!-- <img src="<%#= @cocktail.picture %>" class="img-circle show_image" alt="@cocktail.name" height="300"> -->
 
-       <%#= image_tag(@cocktail.picture, :alt => @cocktail.name, :class => "img-circle show_image") %>
+      <%# cloudinary %>
+      <%= cl_image_tag @cocktail.picture, height: 300, width: 300, crop: :fill %>
+
+
+      <%#= image_tag(@cocktail.picture, :alt => @cocktail.name, :class => "img-circle show_image") %>
     </div>
 
     <div class="col-sm-6 col-md-8">
@@ -29,16 +31,24 @@
       <ul class="list-group">
         <% @cocktail.doses.each do |dose| %>
 
-          <li class="list-group-item">
-            <%= dose.description  %>  <%= dose.ingredient.name  %>
-            <%= link_to 'Delete', cocktail_dose_path(@cocktail.id, dose), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary"%>
+        <li class="list-group-item">
+          <strong> <%= dose.description %></strong>  <%= dose.ingredient.name  %>
+
+          <div class="pull-right text-center" >
             <%= link_to 'Edit', edit_cocktail_dose_path(@cocktail.id, dose), class: "btn btn-primary"%>
-          </li>
+            <%= link_to 'Delete', cocktail_dose_path(@cocktail.id, dose), method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-primary"%>
+          </div>
+        </li>
 
 
         <% end %>
 
       </ul>
+
+    <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+
+
+
     </div>
   </div>
 </div>

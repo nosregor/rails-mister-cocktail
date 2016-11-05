@@ -1,5 +1,8 @@
-<h1>Add new cocktail</h1>
+<h1>Add new cocktail
+</h1>
 
+<%= link_to 'Back', cocktails_path, class: "btn btn-primary"  %>
+<br>
 <%= render 'form', cocktail: @cocktail%>
 
-<%= link_to 'Back', cocktails_path  %>
+

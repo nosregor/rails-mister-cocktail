@@ -29,6 +29,7 @@ class CocktailsController < ApplicationController
   # POST /cocktails
   def create
     #Cocktail.create(cocktail_params)
+
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       flash[:notice] = "You have created #{@cocktail.name} successfully."
@@ -62,6 +63,6 @@ class CocktailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cocktail_params
-      params.require(:cocktail).permit(:name)
+      params.require(:cocktail).permit(:name, :picture, :picture_cache)
     end
 end

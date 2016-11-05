@@ -3,17 +3,22 @@
 <h1>Cocktails</h1>
   <div class="row">
 
+
     <% @cocktails.each do |cocktail|  %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="<%= cocktail.picture  %>" alt="" width="242px" height="200px">
+
+        <!-- <img src="<%#= cocktail.picture  %>" alt="cocktail.name" width="242px" height="200px"> -->
+
+        <%# Cloudinary %>
+        <%= cl_image_tag cocktail.picture.url(:standard), height: 300, width: 300, crop: :fill %>
+        <%#= cl_image_tag cocktail.picture, height: 300, width: 300, crop: :fill %>
 
         <%#= image_tag(cocktail.picture, :alt => cocktail.name, :style => "height: 300px;") %>
 
-
         <div class="caption text-center">
           <h3><%=cocktail.name  %></h3>
-          <p>Write a description</p>
+          <!-- <p>Write a description</p> -->
           <p> <%= link_to 'Show', cocktail, class: "btn btn-primary" %> </p>
         </div>
 

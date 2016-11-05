@@ -42,9 +42,10 @@ gem 'rest-client'
 gem 'rails-controller-testing'
 
 
-# New gems
+# Upload images
 gem 'figaro'
-gem 'cloudinary', '1.1.0'
+gem 'cloudinary'
+gem 'carrierwave' #uploads image to cloudinary
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
